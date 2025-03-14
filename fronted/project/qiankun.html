@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>微前端-qiankun接入流程 | linqibin个人博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/assets/image/favicon.jpg">
+    <meta name="description" content="web前端个人博客">
+    <meta name="referrer" content="no-referrer">
+    
+    <link rel="preload" href="/assets/css/0.styles.d26b1e08.css" as="style"><link rel="preload" href="/assets/js/app.9e718fc7.js" as="script"><link rel="preload" href="/assets/js/7.1d6d658d.js" as="script"><link rel="preload" href="/assets/js/2.56ce9205.js" as="script"><link rel="preload" href="/assets/js/1.87b3c016.js" as="script"><link rel="preload" href="/assets/js/53.6a072153.js" as="script"><link rel="prefetch" href="/assets/js/10.9d0d5702.js"><link rel="prefetch" href="/assets/js/11.5e528052.js"><link rel="prefetch" href="/assets/js/14.0164620e.js"><link rel="prefetch" href="/assets/js/15.135f67fe.js"><link rel="prefetch" href="/assets/js/16.de91e010.js"><link rel="prefetch" href="/assets/js/17.87c93bf3.js"><link rel="prefetch" href="/assets/js/18.c7766411.js"><link rel="prefetch" href="/assets/js/19.f4a18982.js"><link rel="prefetch" href="/assets/js/20.c7ae7326.js"><link rel="prefetch" href="/assets/js/21.0094e804.js"><link rel="prefetch" href="/assets/js/22.c7287c07.js"><link rel="prefetch" href="/assets/js/23.0038c8da.js"><link rel="prefetch" href="/assets/js/24.468655b9.js"><link rel="prefetch" href="/assets/js/25.8bd0f963.js"><link rel="prefetch" href="/assets/js/26.bc975a2f.js"><link rel="prefetch" href="/assets/js/27.7b6f3ef9.js"><link rel="prefetch" href="/assets/js/28.bd6c953f.js"><link rel="prefetch" href="/assets/js/29.2a63611f.js"><link rel="prefetch" href="/assets/js/3.2e52c414.js"><link rel="prefetch" href="/assets/js/30.a794f271.js"><link rel="prefetch" href="/assets/js/31.3cb4ca25.js"><link rel="prefetch" href="/assets/js/32.82b54f5f.js"><link rel="prefetch" href="/assets/js/33.3a0b995c.js"><link rel="prefetch" href="/assets/js/34.cae4210d.js"><link rel="prefetch" href="/assets/js/35.43b8b310.js"><link rel="prefetch" href="/assets/js/36.d924bf06.js"><link rel="prefetch" href="/assets/js/37.3894f6fa.js"><link rel="prefetch" href="/assets/js/38.53535ba2.js"><link rel="prefetch" href="/assets/js/39.420c28f7.js"><link rel="prefetch" href="/assets/js/4.55fc7443.js"><link rel="prefetch" href="/assets/js/40.415b4589.js"><link rel="prefetch" href="/assets/js/41.33a3b97f.js"><link rel="prefetch" href="/assets/js/42.f487c900.js"><link rel="prefetch" href="/assets/js/43.a7530b81.js"><link rel="prefetch" href="/assets/js/44.68207e6c.js"><link rel="prefetch" href="/assets/js/45.2ea11711.js"><link rel="prefetch" href="/assets/js/46.41aafa59.js"><link rel="prefetch" href="/assets/js/47.efe5dda4.js"><link rel="prefetch" href="/assets/js/48.73ce9fbc.js"><link rel="prefetch" href="/assets/js/49.706e188e.js"><link rel="prefetch" href="/assets/js/5.b859386d.js"><link rel="prefetch" href="/assets/js/50.044bae27.js"><link rel="prefetch" href="/assets/js/51.46a4a2f8.js"><link rel="prefetch" href="/assets/js/52.481b8baa.js"><link rel="prefetch" href="/assets/js/54.89a555be.js"><link rel="prefetch" href="/assets/js/55.8543ecab.js"><link rel="prefetch" href="/assets/js/56.2b9678e1.js"><link rel="prefetch" href="/assets/js/57.15f53579.js"><link rel="prefetch" href="/assets/js/58.fb1ddcab.js"><link rel="prefetch" href="/assets/js/59.531cfd94.js"><link rel="prefetch" href="/assets/js/6.1b43193b.js"><link rel="prefetch" href="/assets/js/60.96f06e48.js"><link rel="prefetch" href="/assets/js/61.8b6704d3.js"><link rel="prefetch" href="/assets/js/62.63b542e0.js"><link rel="prefetch" href="/assets/js/63.b2dd5cf8.js"><link rel="prefetch" href="/assets/js/64.d8ceb9f7.js"><link rel="prefetch" href="/assets/js/65.5695c842.js"><link rel="prefetch" href="/assets/js/66.1d492cb5.js"><link rel="prefetch" href="/assets/js/67.fd62d78a.js"><link rel="prefetch" href="/assets/js/68.b4cc8b50.js"><link rel="prefetch" href="/assets/js/69.48a1667c.js"><link rel="prefetch" href="/assets/js/70.bd4e572e.js"><link rel="prefetch" href="/assets/js/71.c2046308.js"><link rel="prefetch" href="/assets/js/8.d1a56a34.js"><link rel="prefetch" href="/assets/js/9.949186c0.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.f66e9565.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d26b1e08.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>linqibin个人博客</h3> <p class="description" data-v-59e6cb88>web前端个人博客</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>林琦彬</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2025
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/image/logo.jpg" alt="linqibin个人博客" class="logo"> <span class="site-name">linqibin个人博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/AI大模型/" class="nav-link"><i class="undefined"></i>
+  AI大模型
+</a></li><li class="dropdown-item"><!----> <a href="/categories/算法/" class="nav-link"><i class="undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机基础/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/React/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/categories/App开发/" class="nav-link"><i class="undefined"></i>
+  App开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/微前端/" class="nav-link"><i class="undefined"></i>
+  微前端
+</a></li><li class="dropdown-item"><!----> <a href="/categories/项目/" class="nav-link"><i class="undefined"></i>
+  项目
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端工程化/" class="nav-link"><i class="undefined"></i>
+  前端工程化
+</a></li><li class="dropdown-item"><!----> <a href="/categories/webpack/" class="nav-link"><i class="undefined"></i>
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/categories/鸿蒙开发/" class="nav-link"><i class="undefined"></i>
+  鸿蒙开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/npm/" class="nav-link"><i class="undefined"></i>
+  npm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/其他/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="https://github.com/Issho-lin" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/assets/image/logo.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    林琦彬
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>33</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>19</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#849b87;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/AI大模型/" class="nav-link"><i class="undefined"></i>
+  AI大模型
+</a></li><li class="dropdown-item"><!----> <a href="/categories/算法/" class="nav-link"><i class="undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Javascript/" class="nav-link"><i class="undefined"></i>
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机基础/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/React/" class="nav-link"><i class="undefined"></i>
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/categories/App开发/" class="nav-link"><i class="undefined"></i>
+  App开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/微前端/" class="nav-link"><i class="undefined"></i>
+  微前端
+</a></li><li class="dropdown-item"><!----> <a href="/categories/项目/" class="nav-link"><i class="undefined"></i>
+  项目
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i class="undefined"></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端工程化/" class="nav-link"><i class="undefined"></i>
+  前端工程化
+</a></li><li class="dropdown-item"><!----> <a href="/categories/webpack/" class="nav-link"><i class="undefined"></i>
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/categories/鸿蒙开发/" class="nav-link"><i class="undefined"></i>
+  鸿蒙开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/npm/" class="nav-link"><i class="undefined"></i>
+  npm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/其他/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="https://github.com/Issho-lin" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>微前端-qiankun接入流程</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>林琦彬</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2025
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">微前端-qiankun接入流程</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Issho Lin</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>3/1/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>微前端</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="一、搭建主应用"><a href="#一、搭建主应用" class="header-anchor">#</a> 一、搭建主应用</h2> <ol><li>使用webpack搭建一个react应用，在<code>src</code>目录下添加一个<code>register.ts</code>文件，添加子应用的注册函数</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> registerMicroApps<span class="token punctuation">,</span> start <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;qiankun&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">registerMicroApps</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">&quot;vue-cli&quot;</span><span class="token punctuation">,</span>
+      entry<span class="token operator">:</span> <span class="token string">&quot;http://localhost:8080&quot;</span><span class="token punctuation">,</span>
+      container<span class="token operator">:</span> <span class="token string">&quot;#container&quot;</span><span class="token punctuation">,</span>
+      activeRule<span class="token operator">:</span> <span class="token string">&quot;/micro-vcli&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">&quot;create-react-app&quot;</span><span class="token punctuation">,</span>
+      entry<span class="token operator">:</span> <span class="token string">&quot;http://localhost:3001&quot;</span><span class="token punctuation">,</span>
+      container<span class="token operator">:</span> <span class="token string">&quot;#container&quot;</span><span class="token punctuation">,</span>
+      activeRule<span class="token operator">:</span> <span class="token string">&quot;/micro-cra&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">&quot;vite-vue&quot;</span><span class="token punctuation">,</span>
+      entry<span class="token operator">:</span> <span class="token string">&quot;http://localhost:5173&quot;</span><span class="token punctuation">,</span>
+      container<span class="token operator">:</span> <span class="token string">&quot;#container&quot;</span><span class="token punctuation">,</span>
+      activeRule<span class="token operator">:</span> <span class="token string">&quot;/micro-viv&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">&quot;vite-react&quot;</span><span class="token punctuation">,</span>
+      entry<span class="token operator">:</span> <span class="token string">&quot;http://localhost:5174&quot;</span><span class="token punctuation">,</span>
+      container<span class="token operator">:</span> <span class="token string">&quot;#container&quot;</span><span class="token punctuation">,</span>
+      activeRule<span class="token operator">:</span> <span class="token string">&quot;/micro-vir&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token string">&quot;umi-app&quot;</span><span class="token punctuation">,</span>
+      entry<span class="token operator">:</span> <span class="token string">&quot;http://localhost:8000&quot;</span><span class="token punctuation">,</span>
+      container<span class="token operator">:</span> <span class="token string">&quot;#container&quot;</span><span class="token punctuation">,</span>
+      activeRule<span class="token operator">:</span> <span class="token string">&quot;/micro-umi&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>entry</code>是子应用的URL地址；<code>container</code>是子应用挂载的容器ID，全局唯一；<code>activeRule</code>是子应用在主应用里对应的路由，与主应用的路由配置保持一致。</p> <ol start="2"><li>在主应用的入口文件处注册子应用</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">&quot;react-dom/client&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&quot;./App&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> registerMicroApps <span class="token keyword">from</span> <span class="token string">&quot;./register&quot;</span><span class="token punctuation">;</span>
+
+<span class="token function">registerMicroApps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 注册子应用</span>
+
+ReactDOM<span class="token punctuation">.</span><span class="token function">createRoot</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">)</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>配置主应用路由表，路由path对应子应用注册函数的activeRule</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ReadOutlined<span class="token punctuation">,</span> AntDesignOutlined <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@ant-design/icons&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  route<span class="token operator">:</span> <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span>
+    routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;/micro-vcli&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 对应activeRule</span>
+        name<span class="token operator">:</span> <span class="token string">&quot;vue-cli子应用&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token operator">:</span> <span class="token operator">&lt;</span>ReadOutlined <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;/micro-cra&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">&quot;cra子应用&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token operator">:</span> <span class="token operator">&lt;</span>AntDesignOutlined <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;/micro-viv&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">&quot;vite-vue子应用&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token operator">:</span> <span class="token operator">&lt;</span>ReadOutlined <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;/micro-vir&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">&quot;vite-react子应用&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token operator">:</span> <span class="token operator">&lt;</span>AntDesignOutlined <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;/micro-umi&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">&quot;umi子应用&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token operator">:</span> <span class="token operator">&lt;</span>ReadOutlined <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="4"><li>放置子应用挂载容器，容器ID对应子应用注册函数的<code>container</code></li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ProLayout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@ant-design/pro-components&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Link<span class="token punctuation">,</span> useLocation <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-router-dom&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> menu <span class="token keyword">from</span> <span class="token string">&quot;./menu&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Layout<span class="token operator">:</span> React<span class="token punctuation">.</span><span class="token function-variable function">FC</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> location <span class="token operator">=</span> <span class="token function">useLocation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>pathname<span class="token punctuation">,</span> setPathname<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setPathname</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>location<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token operator">:</span> <span class="token string">&quot;100vh&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ProLayout
+        <span class="token punctuation">{</span><span class="token operator">...</span>menu<span class="token punctuation">}</span>
+        logo<span class="token operator">=</span><span class="token string">&quot;https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg&quot;</span>
+        title<span class="token operator">=</span><span class="token string">&quot;微前端主应用&quot;</span>
+        location<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> pathname <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        menuItemRender<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> dom<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>path <span class="token operator">||</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>dom<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token operator">&gt;</span>
+        <span class="token comment">// 主应用路由加载子应用挂载到这里</span>
+        <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">&quot;container&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token comment">/* &lt;Outlet /&gt; */</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ProLayout<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Layout<span class="token punctuation">;</span>
+</code></pre></div><h2 id="二、子应用-vue-cli"><a href="#二、子应用-vue-cli" class="header-anchor">#</a> 二、子应用：vue-cli</h2> <ol><li>在<code>src</code>目录下新建一个<code>public-path.js</code>文件</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  __webpack_public_path__ <span class="token operator">=</span> window<span class="token punctuation">.</span>__INJECTED_PUBLIC_PATH_BY_QIANKUN__<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>配置路由，同时兼容作为子应用运行或独立运行，路由前缀需要与主应用中配置的路由一致</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue-router&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&quot;./views/Home.vue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> <span class="token string">&quot;/about&quot;</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;About&quot;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&quot;./views/About.vue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  history<span class="token operator">:</span> <span class="token function">createWebHistory</span><span class="token punctuation">(</span>
+    <span class="token comment">// 添加子应用路由前缀</span>
+    window<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__ <span class="token operator">?</span> <span class="token string">&quot;/micro-vcli&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;/&quot;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  routes<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> router<span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>修改<code>src/main.js</code>，向主应用暴露一个<code>mount</code>方法和<code>unmount</code>方法</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token string">&quot;./public-path&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&quot;./App.vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">&quot;./router&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span>props <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> container <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+  app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span>container <span class="token operator">?</span> container<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vcli] vue app bootstraped&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">mount</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vcli] vue app mount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">render</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">unmount</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vcli] vue app unmount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  app<span class="token punctuation">.</span><span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  app <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="4"><li>运行结果</li></ol> <p><img src="https://cdn.nlark.com/yuque/0/2025/png/613071/1740994100237-7fe80a39-556d-49e9-a68e-3ad034c2cb6c.png" alt=""></p> <h2 id="三、子应用-create-react-app"><a href="#三、子应用-create-react-app" class="header-anchor">#</a> 三、子应用：create-react-app</h2> <ol><li>在<code>src</code>目录下新建一个<code>public-path.js</code>文件</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  __webpack_public_path__ <span class="token operator">=</span> window<span class="token punctuation">.</span>__INJECTED_PUBLIC_PATH_BY_QIANKUN__<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>配置路由，同时兼容作为子应用运行或独立运行，路由前缀需要与主应用中配置的路由一致</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> BrowserRouter<span class="token punctuation">,</span> Routes<span class="token punctuation">,</span> Route<span class="token punctuation">,</span> Link<span class="token punctuation">,</span> Outlet <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-router-dom&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">&quot;./logo.svg&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./App.css&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>BrowserRouter
+      <span class="token comment">// 添加子应用路由前缀</span>
+      basename<span class="token operator">=</span><span class="token punctuation">{</span>window<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__ <span class="token operator">?</span> <span class="token string">&quot;/micro-cra&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">}</span>
+    <span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Routes<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route
+          path<span class="token operator">=</span><span class="token string">&quot;/&quot;</span>
+          element<span class="token operator">=</span><span class="token punctuation">{</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;App&quot;</span><span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">&quot;App-header&quot;</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">&quot;App-logo&quot;</span> alt<span class="token operator">=</span><span class="token string">&quot;logo&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/home&quot;</span><span class="token operator">&gt;</span>首页<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span> <span class="token operator">|</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/user&quot;</span><span class="token operator">&gt;</span>用户<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span>Outlet <span class="token operator">/</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+          <span class="token punctuation">}</span>
+        <span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/home&quot;</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>这是首页<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/user&quot;</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>这是用户中心<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Routes<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>BrowserRouter<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>修改<code>src/index.js</code>，向主应用暴露一个<code>mount</code>方法和<code>unmount</code>方法</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token string">&quot;./public-path&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 一定要写在最顶部</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">&quot;react-dom/client&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&quot;./App&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> reportWebVitals <span class="token keyword">from</span> <span class="token string">&quot;./reportWebVitals&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./index.css&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> container <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> dom <span class="token operator">=</span> container
+    <span class="token operator">?</span> container<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span>
+    <span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root <span class="token operator">=</span> ReactDOM<span class="token punctuation">.</span><span class="token function">createRoot</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>React<span class="token punctuation">.</span>StrictMode<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>React<span class="token punctuation">.</span>StrictMode<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-cra] react app bootstraped&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">mount</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-cra] react app mount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">render</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">unmount</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-cra] react app unmount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root<span class="token punctuation">.</span><span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="4"><li>运行结果</li></ol> <p><img src="https://cdn.nlark.com/yuque/0/2025/png/613071/1740994065457-2157405e-3bfb-42fc-8c04-c3b988e9faa1.png" alt=""></p> <h2 id="四、子应用-vite-vue"><a href="#四、子应用-vite-vue" class="header-anchor">#</a> 四、子应用：vite+vue</h2> <ol><li>安装插件<code>vite-plugin-qiankun</code>，示例版本<code>^1.0.15</code></li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> vite-plugin-qiankun <span class="token parameter variable">-D</span>
+</code></pre></div><ol start="2"><li>在<code>vite.config.ts</code>中配置插件</li></ol> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> vue <span class="token keyword">from</span> <span class="token string">&quot;@vitejs/plugin-vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> qiankun <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-qiankun&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// https://vitejs.dev/config/</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> mode <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> __DEV__ <span class="token operator">=</span> mode <span class="token operator">===</span> <span class="token string">&quot;development&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">5173</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">origin</span><span class="token operator">:</span> <span class="token string">&quot;//localhost:5173&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">preview</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">4173</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">base</span><span class="token operator">:</span> __DEV__ <span class="token operator">?</span> <span class="token string">&quot;/&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;http://localhost:4173/&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token comment">// 配置qiankun插件</span>
+      <span class="token function">qiankun</span><span class="token punctuation">(</span><span class="token string">&quot;micro-viv&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">useDevMode</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>配置路由，同时兼容作为子应用运行或独立运行，路由前缀需要与主应用中配置的路由一致</li></ol> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue-router&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> qiankunWindow <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-qiankun/dist/helper&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&quot;./views/Home.vue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">&quot;/about&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;About&quot;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&quot;./views/About.vue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">history</span><span class="token operator">:</span> <span class="token function">createWebHistory</span><span class="token punctuation">(</span>
+    <span class="token comment">// 添加子应用路由前缀</span>
+    qiankunWindow<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__ <span class="token operator">?</span> <span class="token string">&quot;/micro-viv&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;/&quot;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  routes<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> router<span class="token punctuation">;</span>
+</code></pre></div><ol start="4"><li>修改<code>src/main.js</code>，实现子应用挂载和卸载的方法</li></ol> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./style.css&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&quot;./App.vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">&quot;./router&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  renderWithQiankun<span class="token punctuation">,</span>
+  qiankunWindow<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-qiankun/dist/helper&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token literal-property property">app</span><span class="token operator">:</span> any <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">props</span><span class="token operator">:</span> any <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> container <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+  app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span>container <span class="token operator">?</span> container<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>qiankunWindow<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">renderWithQiankun</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-viv] vue app bootstraped&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>globalProperties<span class="token punctuation">.</span>$onGlobalStateChange <span class="token operator">=</span> props<span class="token punctuation">.</span>onGlobalStateChange<span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>globalProperties<span class="token punctuation">.</span>$setGlobalState <span class="token operator">=</span> props<span class="token punctuation">.</span>setGlobalState<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-viv] vue app mount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-viv] vue app unmount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span>_container<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+    app <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-viv] vue app update&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="5"><li>运行结果</li></ol> <p><img src="https://cdn.nlark.com/yuque/0/2025/png/613071/1740994040265-cb7b6fbb-5c48-4f3d-aa0c-fb7040eccfa0.png" alt=""></p> <h2 id="五、子应用-vite-react"><a href="#五、子应用-vite-react" class="header-anchor">#</a> 五、子应用：vite+react</h2> <ol><li>安装插件<code>vite-plugin-qiankun</code>，示例版本<code>^1.0.15</code></li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> vite-plugin-qiankun <span class="token parameter variable">-D</span>
+</code></pre></div><ol start="2"><li>在<code>vite.config.ts</code>中配置插件</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> react <span class="token keyword">from</span> <span class="token string">&quot;@vitejs/plugin-react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> qiankun <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-qiankun&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> path <span class="token keyword">from</span> <span class="token string">&quot;path&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> useDevMode <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> reactPlugin <span class="token operator">=</span> useDevMode <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">react</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// https://vitejs.dev/config/</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> mode <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> __DEV__ <span class="token operator">=</span> mode <span class="token operator">===</span> <span class="token string">&quot;development&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    server<span class="token operator">:</span> <span class="token punctuation">{</span>
+      port<span class="token operator">:</span> <span class="token number">5174</span><span class="token punctuation">,</span>
+      origin<span class="token operator">:</span> <span class="token string">&quot;//localhost:5174&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    preview<span class="token operator">:</span> <span class="token punctuation">{</span>
+      port<span class="token operator">:</span> <span class="token number">4174</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    base<span class="token operator">:</span> __DEV__ <span class="token operator">?</span> <span class="token string">&quot;/&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;http://localhost:4174/&quot;</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token operator">...</span>reactPlugin<span class="token punctuation">,</span>
+      <span class="token comment">// 配置qiankun插件</span>
+      <span class="token function">qiankun</span><span class="token punctuation">(</span><span class="token string">&quot;micro-vir&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        useDevMode<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="3"><li>配置路由，同时兼容作为子应用运行或独立运行，路由前缀需要与主应用中配置的路由一致</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> BrowserRouter<span class="token punctuation">,</span> Routes<span class="token punctuation">,</span> Route<span class="token punctuation">,</span> Link<span class="token punctuation">,</span> Outlet <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-router-dom&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> qiankunWindow <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-qiankun/dist/helper&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./App.css&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>BrowserRouter
+      <span class="token comment">// 添加子应用路由前缀</span>
+      basename<span class="token operator">=</span><span class="token punctuation">{</span>qiankunWindow<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__ <span class="token operator">?</span> <span class="token string">&quot;/micro-vir&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">}</span>
+    <span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Routes<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Route
+          path<span class="token operator">=</span><span class="token string">&quot;/&quot;</span>
+          element<span class="token operator">=</span><span class="token punctuation">{</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;App&quot;</span><span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/home&quot;</span><span class="token operator">&gt;</span>首页<span class="token number">666</span><span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span> <span class="token operator">|</span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">&quot;/user&quot;</span><span class="token operator">&gt;</span>用户<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>Outlet <span class="token operator">/</span><span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+          <span class="token punctuation">}</span>
+        <span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/home&quot;</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>这是首页<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/user&quot;</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>这是用户中心<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Routes<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>BrowserRouter<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+</code></pre></div><ol start="4"><li>修改<code>src/main.js</code>，实现子应用挂载和卸载的方法</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">&quot;react-dom/client&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&quot;./App&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./index.css&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  renderWithQiankun<span class="token punctuation">,</span>
+  qiankunWindow<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vite-plugin-qiankun/dist/helper&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> root<span class="token operator">:</span> ReactDOM<span class="token punctuation">.</span>Root <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> container <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> dom <span class="token operator">=</span> container
+    <span class="token operator">?</span> container<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span>
+    <span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;#app&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root <span class="token operator">=</span> ReactDOM<span class="token punctuation">.</span><span class="token function">createRoot</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  root<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>React<span class="token punctuation">.</span>StrictMode<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>React<span class="token punctuation">.</span>StrictMode<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>qiankunWindow<span class="token punctuation">.</span>__POWERED_BY_QIANKUN__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">renderWithQiankun</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vir] react app bootstraped&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mount</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vir] react app mount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">render</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">unmount</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vir] react app unmount&quot;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root<span class="token operator">?.</span><span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;[micro-vir] react app update&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol start="5"><li>运行结果</li></ol> <p><img src="https://cdn.nlark.com/yuque/0/2025/png/613071/1740994016086-a8c9a6df-3acd-45c4-b210-348de0510228.png" alt=""></p> <h2 id="六、子应用-umi"><a href="#六、子应用-umi" class="header-anchor">#</a> 六、子应用：umi</h2> <ol><li>umi自带qiankun，只需要在<code>.umirc.ts</code>中开启即可，<code>name</code>与主应用路由前缀保持一致</li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'umi'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// micro-umi</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">'./package.json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  nodeModulesTransform<span class="token operator">:</span> <span class="token punctuation">{</span>
+    type<span class="token operator">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> <span class="token string">'@/pages/index'</span><span class="token punctuation">,</span>
+      routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          path<span class="token operator">:</span> <span class="token string">'/home'</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span> <span class="token string">'@/pages/home'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          path<span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span> <span class="token string">'@/pages/about'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  fastRefresh<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  publicPath<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+  runtimePublicPath<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  mountElementId<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">-id</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+  <span class="token comment">// 开启qiankun</span>
+  qiankun<span class="token operator">:</span> <span class="token punctuation">{</span>
+    slave<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><ol start="2"><li>修改<code>src/app.ts</code></li></ol> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>__REACT_ERROR_OVERLAY_GLOBAL_HOOK__<span class="token operator">?.</span>iframeReady<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>__REACT_ERROR_OVERLAY_GLOBAL_HOOK__MASTER__ <span class="token operator">=</span> <span class="token punctuation">{</span>
+    iframeReady<span class="token operator">:</span> window<span class="token punctuation">.</span>__REACT_ERROR_OVERLAY_GLOBAL_HOOK__<span class="token punctuation">.</span>iframeReady<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> qiankun <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 应用加载之前</span>
+  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'umi app bootstrap'</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 应用 render 之前触发</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'umi app mount'</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    window<span class="token punctuation">.</span>__REACT_ERROR_OVERLAY_GLOBAL_HOOK__ <span class="token operator">=</span> <span class="token punctuation">{</span>
+      iframeReady<span class="token operator">:</span>
+        window<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>__REACT_ERROR_OVERLAY_GLOBAL_HOOK__MASTER__<span class="token punctuation">.</span>iframeReady<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 应用卸载之后触发</span>
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'umi app unmount'</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><ol start="3"><li>运行结果</li></ol> <p><img src="https://cdn.nlark.com/yuque/0/2025/png/613071/1740993988686-d2649b53-4a63-4b63-aebd-f090189d821f.png" alt=""></p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">3/14/2025, 10:15:37 AM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/fronted/project/qiankun.html#一、搭建主应用" class="sidebar-link reco-side-一、搭建主应用" data-v-b57cc07c>一、搭建主应用</a></li><li class="level-2" data-v-b57cc07c><a href="/fronted/project/qiankun.html#二、子应用-vue-cli" class="sidebar-link reco-side-二、子应用-vue-cli" data-v-b57cc07c>二、子应用：vue-cli</a></li><li class="level-2" data-v-b57cc07c><a href="/fronted/project/qiankun.html#三、子应用-create-react-app" class="sidebar-link reco-side-三、子应用-create-react-app" data-v-b57cc07c>三、子应用：create-react-app</a></li><li class="level-2" data-v-b57cc07c><a href="/fronted/project/qiankun.html#四、子应用-vite-vue" class="sidebar-link reco-side-四、子应用-vite-vue" data-v-b57cc07c>四、子应用：vite+vue</a></li><li class="level-2" data-v-b57cc07c><a href="/fronted/project/qiankun.html#五、子应用-vite-react" class="sidebar-link reco-side-五、子应用-vite-react" data-v-b57cc07c>五、子应用：vite+react</a></li><li class="level-2" data-v-b57cc07c><a href="/fronted/project/qiankun.html#六、子应用-umi" class="sidebar-link reco-side-六、子应用-umi" data-v-b57cc07c>六、子应用：umi</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.9e718fc7.js" defer></script><script src="/assets/js/7.1d6d658d.js" defer></script><script src="/assets/js/2.56ce9205.js" defer></script><script src="/assets/js/1.87b3c016.js" defer></script><script src="/assets/js/53.6a072153.js" defer></script>
+  </body>
+</html>
